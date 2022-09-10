@@ -319,9 +319,6 @@ INSERT INTO UNIVERSIDADE.DISCIPLINA_CURSO(codigo, cdCurso, cdDisciplina) VALUES 
 ## ATUALIZAR numeroAlunos PARA 50 EM TODOS OS CURSOS
 UPDATE UNIVERSIDADE.CURSO SET numeroAlunos = 50 WHERE numeroAlunos <= 49;
 
-## ATUALIZAR nome DO ALUNO COM codigo 10 PARA 'Fagundes'
-UPDATE universidade.aluno SET nome = 'Fagundes' WHERE codigo = 10;
-
 ## ATUALIZAR endereco DO ALUNO COM nome 'Junior' PARA 'Rua das Trocas'
 UPDATE universidade.aluno SET endereco = 'Rua das Trocas' WHERE nome = 'Junior';
 
@@ -330,3 +327,19 @@ ALTER TABLE universidade.aluno ADD email varchar(255);
 
 ## ALTERA TABELA ALUNO REMOVENDO UMA COLUNA email
 ALTER TABLE universidade.aluno DROP COLUMN email;
+
+## ATUALIZAR nome DO ALUNO COM codigo 10 PARA 'Fagundes'
+UPDATE universidade.aluno SET nome = 'Fagundes' WHERE codigo = 10;
+
+## ATUALIZAR endereco DO ALUNO COM codigo 10 PARA 'Avenida Oeste'
+UPDATE universidade.aluno SET endereco = 'Avenida Oeste' WHERE codigo = 10;
+
+## ATUALIZAR matricula DO ALUNO COM codigo 10 PARA 'FA-AGO-2019'
+UPDATE universidade.aluno SET matricula = 'FA-AGO-2019' WHERE codigo = 10;
+
+## CRIA TABELA TESTE PARA PODER DELETAR DEPOIS
+CREATE TABLE UNIVERSIDADE.TESTE(codigo INTEGER NOT NULL AUTO_INCREMENT,
+                                       PRIMARY KEY( codigo ));
+
+## DELETAR TABELA TESTE 
+DROP TABLE UNIVERSIDADE.TESTE;
