@@ -6,7 +6,7 @@ CREATE DATABASE UNIVERSIDADE;
 CREATE TABLE UNIVERSIDADE.DEPARTAMENTO(codigo INTEGER NOT NULL AUTO_INCREMENT,
                                        PRIMARY KEY( codigo ),
                                        nome varchar(50),
-                                       campus varchar(50));
+                                       campus varchar(50)) ENGINE = INNODB;
 
 
 ## CRIA TABELA PROFESSOR
@@ -17,7 +17,7 @@ CREATE TABLE UNIVERSIDADE.PROFESSOR(codigo INTEGER NOT NULL AUTO_INCREMENT,
                                     salario float,
                                     dataNascimento date,
                                     cdDepartamento integer,
-                                    CONSTRAINT fkDepartamento FOREIGN KEY (cdDepartamento) REFERENCES DEPARTAMENTO(codigo));                
+                                    CONSTRAINT fkDepartamento FOREIGN KEY (cdDepartamento) REFERENCES DEPARTAMENTO(codigo))ENGINE = INNODB;            
 
 
 ## CRIA TABELA TITULACAO
@@ -27,7 +27,7 @@ CREATE TABLE UNIVERSIDADE.TITULACAO(codigo INTEGER NOT NULL AUTO_INCREMENT,
                                     curso varchar(50),
                                     grau varchar(50),
                                     cdProfessor integer,
-                                    CONSTRAINT fkProfessor FOREIGN KEY (cdProfessor) REFERENCES PROFESSOR(codigo));
+                                    CONSTRAINT fkProfessor FOREIGN KEY (cdProfessor) REFERENCES PROFESSOR(codigo))ENGINE = INNODB;
         
         
 ## CRIA TABELA DEPENDENTE
@@ -37,7 +37,7 @@ CREATE TABLE UNIVERSIDADE.DEPENDENTE(codigo INTEGER NOT NULL AUTO_INCREMENT,
                                      relacionamento varchar(50),
                                      dataNascimento date,
                                      cdProfessor integer,
-                                     CONSTRAINT fkProfessor FOREIGN KEY (cdProfessor) REFERENCES PROFESSOR(codigo));
+                                     CONSTRAINT fkProfessor FOREIGN KEY (cdProfessor) REFERENCES PROFESSOR(codigo))ENGINE = INNODB;
 
 
 ## CRIA TABELA CURSO
@@ -45,7 +45,7 @@ CREATE TABLE UNIVERSIDADE.CURSO(codigo INTEGER NOT NULL AUTO_INCREMENT,
                                 PRIMARY KEY( codigo ),
                                 nome varchar(50),
                                 turno varchar(50),
-                                numeroAlunos integer);
+                                numeroAlunos integer)ENGINE = INNODB;
     
     
 ## CRIA TABELA OFERTA
@@ -59,7 +59,7 @@ CREATE TABLE UNIVERSIDADE.OFERTA(codigo integer PRIMARY KEY,
                                 cdDisciplina integer,
                                 CONSTRAINT fkProfessor FOREIGN KEY (cdProfessor) REFERENCES PROFESSOR(codigo),
                                 CONSTRAINT fkAluno FOREIGN KEY (cdAluno) REFERENCES ALUNO(codigo),
-                                CONSTRAINT fkDisciplina FOREIGN KEY (cdDisciplina) REFERENCES DISCIPLINA(codigo));
+                                CONSTRAINT fkDisciplina FOREIGN KEY (cdDisciplina) REFERENCES DISCIPLINA(codigo))ENGINE = INNODB;
 
 
 ## CRIA TABELA DISCIPLINA
@@ -67,7 +67,7 @@ CREATE TABLE UNIVERSIDADE.DISCIPLINA(codigo integer PRIMARY KEY,
                                      nome varchar(50),
                                      horas integer,
                                      cdPreRequisito integer,
-                                     CONSTRAINT fkPreRequisito FOREIGN KEY (cdPreRequisito) REFERENCES PREREQUISITO(codigo));
+                                     CONSTRAINT fkPreRequisito FOREIGN KEY (cdPreRequisito) REFERENCES PREREQUISITO(codigo))ENGINE = INNODB;
 
 
 ## CRIA TABELA ALUNO
@@ -77,7 +77,7 @@ CREATE TABLE UNIVERSIDADE.ALUNO(codigo integer PRIMARY KEY,
                                 endereco varchar(50),
                                 dataNascimento date,
                                 cdCurso integer,
-                                CONSTRAINT fkCurso FOREIGN KEY (cdCurso) REFERENCES CURSO(codigo));
+                                CONSTRAINT fkCurso FOREIGN KEY (cdCurso) REFERENCES CURSO(codigo))ENGINE = INNODB;
  
  
 ## CRIA TABELA DEPARTAMENTO_CURSO
@@ -85,7 +85,7 @@ CREATE TABLE UNIVERSIDADE.DEPARTAMENTO_CURSO(codigo integer PRIMARY KEY,
                                              cdDepartamento integer,
                                              cdCurso integer,
                                              CONSTRAINT fkDepartamento FOREIGN KEY (cdDepartamento) REFERENCES DEPARTAMENTO(codigo),
-                                             CONSTRAINT fkCurso FOREIGN KEY (cdCurso) REFERENCES CURSO(codigo));
+                                             CONSTRAINT fkCurso FOREIGN KEY (cdCurso) REFERENCES CURSO(codigo))ENGINE = INNODB;
  
  
 ## CRIA TABELA DISCIPLINA_CURSO
@@ -93,7 +93,7 @@ CREATE TABLE UNIVERSIDADE.DISCIPLINA_CURSO(codigo integer PRIMARY KEY,
                                            cdCurso integer,
                                            cdDisciplina integer,
                                            CONSTRAINT fkCurso FOREIGN KEY (cdCurso) REFERENCES CURSO(codigo),
-                                           CONSTRAINT fkDisciplina FOREIGN KEY (cdDisciplina) REFERENCES DISCIPLINA(codigo));
+                                           CONSTRAINT fkDisciplina FOREIGN KEY (cdDisciplina) REFERENCES DISCIPLINA(codigo))ENGINE = INNODB;
             
             
 ## INSERCAO DE DADOS NA TABELA DEPARTAMENTO
