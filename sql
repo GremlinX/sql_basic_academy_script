@@ -304,3 +304,37 @@ INSERT INTO UNIVERSIDADE.DISCIPLINA_CURSO(cd_disciplina_curso, fk_curso, FK_DISC
 INSERT INTO UNIVERSIDADE.DISCIPLINA_CURSO(cd_disciplina_curso, fk_curso, FK_DISCIPLINA) VALUES (9, 7, 9);
 ## ITEM 10
 INSERT INTO UNIVERSIDADE.DISCIPLINA_CURSO(cd_disciplina_curso, fk_curso, FK_DISCIPLINA) VALUES (10, 8, 10);
+
+## ATUALIZAR NUMERO_ALUNOS PARA 50 EM TODOS OS CURSOS
+UPDATE UNIVERSIDADE.CURSO SET NUMERO_ALUNOS = 50 WHERE NUMERO_ALUNOS <= 49;
+
+## ATUALIZAR endereco DO ALUNO COM nome 'Junior' PARA 'Rua das Trocas'
+UPDATE universidade.aluno SET endereco = 'Rua das Trocas' WHERE nome = 'Junior';
+
+## ALTERA TABELA ALUNO ADICIONANDO UMA COLUNA email
+ALTER TABLE universidade.aluno ADD email varchar(50);
+
+## ALTERA TABELA ALUNO REMOVENDO UMA COLUNA email
+ALTER TABLE universidade.aluno DROP COLUMN email;
+
+## ATUALIZAR nome DO ALUNO COM codigo 10 PARA 'Fagundes'
+UPDATE universidade.aluno SET nome = 'Fagundes' WHERE CD_ALUNO = 10;
+
+## ATUALIZAR endereco DO ALUNO COM codigo 10 PARA 'Avenida Oeste'
+UPDATE universidade.aluno SET endereco = 'Avenida Oeste' WHERE CD_ALUNO = 10;
+
+## ATUALIZAR matricula DO ALUNO COM codigo 10 PARA 'FA-AGO-2019'
+UPDATE universidade.aluno SET matricula = 'FA-AGO-2019' WHERE CD_ALUNO = 10;
+
+## CRIA TABELA TESTE PARA PODER DELETAR DEPOIS
+CREATE TABLE UNIVERSIDADE.TESTE(codigo INTEGER NOT NULL AUTO_INCREMENT,
+                                       PRIMARY KEY(codigo)) ENGINE = INNODB;
+
+## DELETAR TABELA TESTE 
+DROP TABLE UNIVERSIDADE.TESTE;
+
+## SELECT NA COLUNA codigo E horas DA TABELA ALUNO ONDE horas É MAIOR QUE 2
+SELECT CD_DISCIPLINA, horas FROM UNIVERSIDADE.disciplina WHERE horas > 2;
+
+## SELECT COM JOIN
+SELECT ALUNO.NOME, curso.NOME FROM aluno JOIN curso ON aluno.FK_CURSO = curso.CD_CURSO;
