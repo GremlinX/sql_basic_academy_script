@@ -121,7 +121,7 @@ INSERT INTO UNIVERSIDADE.DEPARTAMENTO (nome, campus) VALUES ('Psicologia', 'UEM'
 ## ITEM 01
 INSERT INTO UNIVERSIDADE.PROFESSOR (nome, cpf, salario, data_nascimento, fk_departamento) VALUES ('Alberto', 10, 1000.00, '2022-01-01', 1);
 ## ITEM 02
-INSERT INTO UNIVERSIDADE.PROFESSOR (nome, cdpf, salario, data_nascimento, fk_departamento) VALUES ('Bruno', 11, 2000.00, '2022-02-02', 1);
+INSERT INTO UNIVERSIDADE.PROFESSOR (nome, cpf, salario, data_nascimento, fk_departamento) VALUES ('Bruno', 11, 2000.00, '2022-02-02', 1);
 ## ITEM 03
 INSERT INTO UNIVERSIDADE.PROFESSOR (nome, cpf, salario, data_nascimento, fk_departamento) VALUES ('Carlos', 12, 3000.00, '2022-03-03', 1);
 ## ITEM 04
