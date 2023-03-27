@@ -338,3 +338,9 @@ SELECT CD_DISCIPLINA, horas FROM UNIVERSIDADE.disciplina WHERE horas > 2;
 
 ## SELECT COM JOIN
 SELECT ALUNO.NOME, curso.NOME FROM aluno JOIN curso ON aluno.FK_CURSO = curso.CD_CURSO;
+
+## ALTERA TABELA DISCIPLINA
+alter table disciplina add COLUMN pre_requisito integer REFERENCES disciplina(cd_disciplina);
+
+## REMOVER ALUNO COM CÓDIGO 1
+delete from aluno where cd_aluno = 1;
